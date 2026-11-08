@@ -1,5 +1,5 @@
 [project]
-name = "am-tp-avs"
+name = "vci-tp-avs"
 version = "0.1.0"
 description = "Trabajos prácticos de Visión por Computadora I (CEIA-FIUBA)"
 readme = "README.md"
