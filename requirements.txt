@@ -1,0 +1,8 @@
+# Versiones exactas con las que se ejecutó TP01/TP1.ipynb (Python 3.12, Windows 11).
+# Las versiones mínimas están en pyproject.toml.
+ipykernel==7.4.0
+jupyter==1.1.1
+matplotlib==3.11.2
+nbconvert==7.17.2
+numpy==2.5.4
+opencv-python==5.0.0.93
