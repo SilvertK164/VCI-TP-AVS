@@ -82,9 +82,10 @@ se ejecutó el notebook en [`requirements.txt`](requirements.txt).
 ```
 ├── TP01/
 │   ├── TP1.ipynb          # notebook del TP1 (con salidas)
-│   └── data/              # imágenes de la cátedra
+│   └── data/              # copia de Material_TPs/TP1 de la cátedra
 │       ├── img1_tp.png
 │       ├── img2_tp.png
+│       ├── segmentacion.png  # no se usa en la consigna del TP1
 │       └── white_patch/
 ├── pyproject.toml         # dependencias (versiones mínimas)
 ├── requirements.txt       # versiones exactas
