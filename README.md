@@ -15,7 +15,7 @@ Trabajos prácticos de **Visión por Computadora I**, Especialización en Inteli
 | TP | Notebook | Temas |
 |---|---|---|
 | TP1 | [`TP01/TP1.ipynb`](TP01/TP1.ipynb) | White Patch (balance de blancos) e histogramas en escala de grises |
-| TP2 | *pendiente* | |
+| TP2 | [`TP02/TP2.ipynb`](TP02/TP2.ipynb) | Detector de máximo enfoque en video con una métrica en el dominio de la frecuencia y *unsharp masking* |
 | TP3 | *pendiente* | |
 
 ### TP1
@@ -30,6 +30,20 @@ Trabajos prácticos de **Visión por Computadora I**, Especialización en Inteli
 Las imágenes están copiadas en [`TP01/data/`](TP01/data/) desde
 [`Material_TPs/TP1`](https://github.com/FIUBA-Posgrado-Inteligencia-Artificial/vision_computadora_I/tree/main/Material_TPs/TP1)
 del repositorio de la cátedra, para que el notebook sea autocontenido.
+
+### TP2
+
+- **Métrica de enfoque.** Implementación de la métrica `FM` de *Image Sharpness Measure for Blurred
+  Images in Frequency Domain* (De y Masilamani, 2013): proporción de coeficientes de la FFT cuya magnitud
+  supera `max / 1000`.
+- **Experimentos.** Medición frame a frame de `focus_video.mov` sobre el frame completo y sobre una ROI
+  central del 10% del área. Para cada uno se detecta automáticamente el frame de máximo enfoque y la
+  región de máximo enfoque (tramo continuo con `FM` ≥ 90% del máximo).
+- **Puntos extra.** *Unsharp masking* sobre todos los frames y recálculo de la métrica: con el mismo
+  umbral, la zona de enfoque se expande de 37 a 62 frames (frame completo) y de 9 a 35 frames (ROI).
+
+El video está copiado en [`TP02/Data/`](TP02/Data/) desde
+[`Material_TPs/TP2`](https://github.com/FIUBA-Posgrado-Inteligencia-Artificial/vision_computadora_I/tree/main/Material_TPs/TP2).
 
 ## Cómo correrlo
 
@@ -55,14 +69,17 @@ uv sync
 uv run jupyter lab
 ```
 
-Abrir `TP01/TP1.ipynb` y ejecutar las celdas en orden. El notebook lee las imágenes de `TP01/data/`
-con rutas relativas a su propia carpeta, que es el directorio de trabajo que usa Jupyter por defecto.
+Abrir el notebook del TP (`TP01/TP1.ipynb` o `TP02/TP2.ipynb`) y ejecutar las celdas en orden. Cada
+notebook lee sus datos (`TP01/data/`, `TP02/Data/`) con rutas relativas a su propia carpeta, que es el
+directorio de trabajo que usa Jupyter por defecto.
 
-Para ejecutarlo de punta a punta sin abrir Jupyter:
+Para ejecutarlos de punta a punta sin abrir Jupyter:
 
 ```bash
 cd TP01
 jupyter nbconvert --to notebook --execute --inplace TP1.ipynb
+cd ../TP02
+jupyter nbconvert --to notebook --execute --inplace TP2.ipynb
 ```
 
 ## Dependencias
@@ -70,7 +87,7 @@ jupyter nbconvert --to notebook --execute --inplace TP1.ipynb
 | Paquete | Uso |
 |---|---|
 | `numpy` | operaciones sobre arrays e histogramas |
-| `opencv-python` | lectura de imágenes (`cv2.imread`) |
+| `opencv-python` | lectura de imágenes y video, filtrado gaussiano |
 | `matplotlib` | visualización |
 | `jupyter`, `ipykernel` | ejecución de los notebooks |
 
@@ -87,6 +104,10 @@ se ejecutó el notebook en [`requirements.txt`](requirements.txt).
 │       ├── img2_tp.png
 │       ├── segmentacion.png  # no se usa en la consigna del TP1
 │       └── white_patch/
+├── TP02/
+│   ├── TP2.ipynb          # notebook del TP2 (con salidas)
+│   └── Data/
+│       └── focus_video.mov   # copia de Material_TPs/TP2 de la cátedra
 ├── pyproject.toml         # dependencias (versiones mínimas)
 ├── requirements.txt       # versiones exactas
 └── .python-version
