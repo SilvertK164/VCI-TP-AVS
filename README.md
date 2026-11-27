@@ -42,7 +42,8 @@ del repositorio de la cátedra, para que el notebook sea autocontenido.
 - **Puntos extra.** *Unsharp masking* sobre todos los frames y recálculo de la métrica: con el mismo
   umbral, la zona de enfoque se expande de 37 a 62 frames (frame completo) y de 9 a 35 frames (ROI).
 
-El video está copiado en [`TP02/Data/`](TP02/Data/) desde
+Detalle de método y resultados en [`TP02/README.md`](TP02/README.md). El video está copiado en
+[`TP02/Data/`](TP02/Data/) desde
 [`Material_TPs/TP2`](https://github.com/FIUBA-Posgrado-Inteligencia-Artificial/vision_computadora_I/tree/main/Material_TPs/TP2).
 
 ## Cómo correrlo
@@ -105,9 +106,11 @@ se ejecutó el notebook en [`requirements.txt`](requirements.txt).
 │       ├── segmentacion.png  # no se usa en la consigna del TP1
 │       └── white_patch/
 ├── TP02/
+│   ├── README.md          # resumen del TP2: método, resultados y figuras
 │   ├── TP2.ipynb          # notebook del TP2 (con salidas)
-│   └── Data/
-│       └── focus_video.mov   # copia de Material_TPs/TP2 de la cátedra
+│   ├── Data/
+│   │   └── focus_video.mov   # copia de Material_TPs/TP2 de la cátedra
+│   └── figuras/           # figuras exportadas del notebook
 ├── pyproject.toml         # dependencias (versiones mínimas)
 ├── requirements.txt       # versiones exactas
 └── .python-version
